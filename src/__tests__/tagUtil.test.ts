@@ -73,6 +73,11 @@ describe('tagUtil', () => {
       const module = new FakeModule();
       expect(bufferToTags(0, module)).toEqual([]);
     });
+
+    it('returns empty array when passed null', () => {
+      const module = new FakeModule();
+      expect(bufferToTags(null, module)).toEqual([]);
+    });
     
     it('returns a tag from a buffer', () => {
       const module = new FakeModule('name1=value1');

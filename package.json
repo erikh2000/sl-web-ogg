@@ -1,6 +1,6 @@
 {
   "name": "sl-web-ogg",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "Erik Hermansen",
   "description": "A library for using Ogg Vorbis in web browsers",
   "repository": {
@@ -28,11 +28,11 @@
     "update-preview": "npm run build && cp example/* dist && cp wasm/middle-layer.wasm dist"
   },
   "devDependencies": {
-    "@types/jest": "^29.5.11",
-    "jest": "^29.7.0",
-    "ts-jest": "^29.1.1",
-    "typescript": "^5.2.2",
-    "vite": "^5.0.8"
+    "@types/jest": "^30.0.0",
+    "jest": "^30.2.0",
+    "ts-jest": "^29.4.5",
+    "typescript": "^5.9.3",
+    "vite": "^7.1.12"
   },
   "license": "MIT",
   "jest": {

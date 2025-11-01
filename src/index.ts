@@ -107,7 +107,7 @@ function _decodeOggArrayBufferTags(arrayBuffer:ArrayBuffer):EncodeTag[] {
  */
 export async function encodeAudioBuffer(audioBuffer:AudioBuffer, encodeOptions:Partial<EncodeOptions> = DEFAULT_ENCODE_OPTIONS):Promise<Blob> {
   let pEncoderState:P = null;
-  const oggByteBuffers:Uint8Array[] = [];
+  const oggByteBuffers: BlobPart[] = [];
   const options = _fillInDefaults(encodeOptions);
   let tagsBuffer:P = null;
 
@@ -125,13 +125,13 @@ export async function encodeAudioBuffer(audioBuffer:AudioBuffer, encodeOptions:P
       const p32AnalysisBuffer= _createAnalysisBuffer(pEncoderState) >> 2;
       const fromSampleCount = Math.min(ANALYSIS_SAMPLE_COUNT, sampleCount - fromSampleNo);
       const oggBytes = _processSampleBufferChunk(pEncoderState, channelSampleBuffers, fromSampleNo, fromSampleCount, p32AnalysisBuffer);
-      if (oggBytes.length) oggByteBuffers.push(oggBytes);
+      if (oggBytes.length) oggByteBuffers.push(oggBytes.slice().buffer);
       fromSampleNo += fromSampleCount;
       await _yield();
     }
 
     const lastOggBytes = _finishProcessing(pEncoderState);
-    if (lastOggBytes.length) oggByteBuffers.push(lastOggBytes);
+    if (lastOggBytes.length) oggByteBuffers.push(lastOggBytes.slice().buffer);
     return new Blob(oggByteBuffers, {type:'audio/ogg'});
   } finally {
     if (pEncoderState !== null) _clearEncoder(pEncoderState);
