@@ -1,6 +1,6 @@
 {
   "name": "sl-web-ogg",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "author": "Erik Hermansen",
   "description": "A library for using Ogg Vorbis in web browsers",
   "repository": {
