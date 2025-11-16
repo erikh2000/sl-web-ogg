@@ -11,9 +11,14 @@
     "url": "https://github.com/erikh2000/sl-web-ogg/issues",
     "email": "info@seespacelabs.com"
   },
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.es.js",
-  "unpkg": "dist/index.umd.js",
+  "main": "dist/sl-web-ogg.cjs",
+  "module": "dist/sl-web-ogg.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/sl-web-ogg.es.js",
+      "require": "./dist/sl-web-ogg.cjs"
+    }
+  },
   "types": "dist/types/index.d.ts",
   "private": false,
   "type": "module",
