@@ -1,11 +1,11 @@
 {
   "name": "sl-web-ogg",
-  "version": "1.1.2",
+  "version": "2.0.0",
   "author": "Erik Hermansen",
   "description": "A library for using Ogg Vorbis in web browsers",
   "repository": {
     "type": "git",
-    "url:": "https://github.com/erikh2000/sl-web-ogg"
+    "url": "https://github.com/erikh2000/sl-web-ogg"
   },
   "bugs": {
     "url": "https://github.com/erikh2000/sl-web-ogg/issues",
@@ -28,16 +28,15 @@
     "trace": "tsc --traceResolution",
     "preview": "npm run update-preview && vite preview",
     "publish": "npm run build && npm publish",
-    "test": "jest",
-    "test:watch": "jest --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "update-preview": "npm run build && cp example/* dist && cp wasm/middle-layer.wasm dist"
   },
   "devDependencies": {
-    "@types/jest": "^30.0.0",
-    "jest": "^30.2.0",
-    "ts-jest": "^29.4.5",
+    "@vitest/coverage-v8": "^4.0.9",
     "typescript": "^5.9.3",
-    "vite": "^7.1.12"
+    "vite": "^7.2.2",
+    "vitest": "^4.0.9"
   },
   "license": "MIT",
   "jest": {
@@ -47,5 +46,14 @@
     "testMatch": [
       "**/__tests__/**/*.test.ts?(x)"
     ]
-  }
+  },
+  "test": {
+    "environment": "node",
+    "include": ["**/__tests__/**/*.test.ts?(x)"],
+    "coverage": {
+      "enabled": true,
+      "provider": "v8"
+    }
+  },
+  "sideEffects": false
 }

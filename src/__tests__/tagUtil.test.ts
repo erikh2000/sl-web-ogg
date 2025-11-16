@@ -1,3 +1,5 @@
+import { describe, it, expect, beforeEach } from 'vitest';
+
 import {bufferToTags, tagsToBuffer} from "../tagUtil.ts";
 
 class FakeModule {
