@@ -1,6 +1,6 @@
 {
   "name": "sl-web-ogg",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "author": "Erik Hermansen",
   "description": "A library for using Ogg Vorbis in web browsers",
   "repository": {
@@ -15,6 +15,7 @@
   "module": "dist/sl-web-ogg.es.js",
   "exports": {
     ".": {
+      "types": "./dist/types/index.d.ts",
       "import": "./dist/sl-web-ogg.es.js",
       "require": "./dist/sl-web-ogg.cjs"
     }
